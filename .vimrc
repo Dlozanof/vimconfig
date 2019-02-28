@@ -31,3 +31,21 @@ set tabstop=4
 set shiftwidth=4
 
 set tags=tags
+
+"""LATEX
+autocmd FileType tex map <f9> :!./Makefile<ENTER>
+" contenido de Makefile:
+" clear
+" pdflatex -halt-on-error main.tex | grep '^!.*' -A200 --color=always
+" if [[ $? ]]; then
+" 	exit 0
+" fi
+
+autocmd FileType tex inoremap  ,bf \textbf{}<Esc>T{i
+autocmd FileType tex inoremap  ,it \textit{}<Esc>T{i
+map <leader>c :w! \| !compiler <c-r>%<CR>
+map <leader>p :!opout <c-r>%<CR><CR>
+
+" Relative line numbers
+set number relativenumber
+set nu rnu
