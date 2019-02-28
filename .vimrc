@@ -33,13 +33,18 @@ set shiftwidth=4
 set tags=tags
 
 """LATEX
-autocmd FileType tex map <f9> :!./Makefile<ENTER>
+"Placeholders, ctrl j salta al siguiente y lo borra, https://vim.fandom.com/wiki/Simple_placeholders
+inoremap <c-j> <Esc>/<++><CR><Esc>cf>
+
+autocmd FileType tex map <f9> :!./Makefile<ENTER> 
 " contenido de Makefile:
 " clear
 " pdflatex -halt-on-error main.tex | grep '^!.*' -A200 --color=always
 " if [[ $? ]]; then
 " 	exit 0
 " fi
+inoremap ,fig \begin{figure}[h]<ENTER>\centering<ENTER>\includegraphics[width=<++>\columnwidth]{<++>}<ENTER>\caption{<++>}<ENTER>\label{<++>}<ENTER>\end{figure}<Esc>/<++><CR><Esc>cf>
+
 
 autocmd FileType tex inoremap  ,bf \textbf{}<Esc>T{i
 autocmd FileType tex inoremap  ,it \textit{}<Esc>T{i
