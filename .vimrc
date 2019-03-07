@@ -36,6 +36,14 @@ inoremap <c-j> <Esc>/<++><CR><Esc>cf>
 " Navegar por comentarios multilinea (Ctrl-O vuelve a modo normal por un solo comando
 imap <down> <C-o>gj
 imap <up> <C-o>gk
+nmap <up> gk
+nmap <down> gj
+
+imap <end> <C-o>g$
+imap <home> <C-o>g0
+map <end> g$
+map <home> g0
+
 
 
 
