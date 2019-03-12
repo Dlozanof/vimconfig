@@ -10,6 +10,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 Plug 'jnurmine/Zenburn'
 Plug 'majutsushi/tagbar'
+Plug 'MattesGroeger/vim-bookmarks'
 call plug#end()
 
 "" Tuning para hacerme el xulo
@@ -29,6 +30,11 @@ set shiftwidth=4
 " Relative line numbers
 set number relativenumber
 set nu rnu
+
+" Bookmarks se guardan por directorio en lugar de ser globales
+let g:bookmark_save_per_working_dir = 1
+let g:bookmark_auto_save = 1
+let g:bookmark_auto_close = 1
 
 "Placeholders, ctrl j salta al siguiente y lo borra, https://vim.fandom.com/wiki/Simple_placeholders
 inoremap <c-j> <Esc>/<++><CR><Esc>cf>
@@ -71,7 +77,7 @@ syntax on
 
 
 """LATEX
-autocmd FileType tex map <f9> :!./Makefile<ENTER> 
+autocmd FileType tex map <f9> :w<CR> :!./Makefile<ENTER> 
 " contenido de Makefile:
 " clear
 " pdflatex -halt-on-error main.tex | grep '^!.*' -A200 --color=always
@@ -85,3 +91,5 @@ inoremap ,fig \begin{figure}[h]<ENTER>\centering<ENTER>\includegraphics[width=<+
 " Formato
 autocmd FileType tex inoremap  ,bf \textbf{}<Esc>T{i
 autocmd FileType tex inoremap  ,it \textit{}<Esc>T{i
+autocmd FileType tex inoremap  ,st \section{}<Esc>T{i
+autocmd FileType tex inoremap  ,sst \subsection{}<Esc>T{i
