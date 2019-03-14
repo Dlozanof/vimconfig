@@ -50,7 +50,8 @@ imap <home> <C-o>g0
 map <end> g$
 map <home> g0
 
-
+" ,z para centrar la linea en la pantalla
+imap ,z <C-o>zz
 
 
 "" Desarrollo C/C++
